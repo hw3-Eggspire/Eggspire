@@ -20,10 +20,21 @@
 <main>
 <div class="container">
   <div class="row">
+    <h1>Eggspire</h1>
+  </div>
+  
+  <div class="row">
     <p>
-    <div class="btn-group" style="margin-left:">
       <button id= "camera" type="button" class="btn btn-default" data-toggle="modal" data-target="#camera-add">Camera</button>
-    </div>
+    </p>
+    
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="add">Manual Add</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Your Item..." id="item">
+    </div><!-- /input-group -->
+    
     <!--CAMERA PICTURE UPLOAD MODAL-->
     <div class="modal fade" id="camera-add" tabindex="-1" role="dialog" aria-labelledby="camera-addLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -58,35 +69,14 @@
         </div>
       </div>
     </div>
-    </p>
-  </div>
-  <div class="row">
-
-          <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" style="margin-right:10px" type="button" id="add">Manual Add</button>
-      </span>
-      <input type="text" class="form-control" placeholder="Your Item..." id="item">
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-  </div>
-
-    <div class="row">
-      <!-- Uncompleted tasks -->
-      <ul class="todo" id="todo"></ul>
-
-      <!-- Completed tasks -->
-      <ul class="todo" id="completed"></ul>
-    </div>
-
-  <div class="row">
-    <h1>EGGSPIRED</h1>
-    <hr>
   </div>
 
   <div class="row">
-    <p>Your refrigerator is empty. Add some items! </p>
+    <!-- Uncompleted tasks -->
+    <ul class="todo" id="todo"></ul>
+
+    <!-- Completed tasks -->
+    <ul class="todo" id="completed"></ul>
   </div>
 
 </div>
