@@ -46,3 +46,13 @@
 
 		list.insertBefore(item, list.childNodes[0]);
 	}
+
+	$('#add').on('click',function()){
+		$.ajax({
+		type:'POST',
+		url:'/api/orders',
+	 	data: order
+		})
+	}
+
+
