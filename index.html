@@ -59,20 +59,34 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="myModalLabel">Receipt Camera Upload</h4>
+            <h4 class="modal-title" id="myModalLabel">Manual Add</h4>
           </div>
-          <!--Body-->
           <div class="modal-body">
             <p>Manually add your food. </p>
             
+            <div class="md-form">
+              <i class="fa fa-pencil prefix"></i>
+              <input type="text" id="manual-name-form" class="form-control">
+              <label for="manual-name-form">Name of Item</label>
+            </div>
+            
+            <div class="md-form">
+              <i class="fa fa-hashtag prefix"></i>
+              <input type="text" id="manual-quantity-form" class="form-control">
+              <label for="manual-quantity-form">Quantity</label>
+            </div>
+            
+            <div class="md-form">
+              <i class="fa fa-clock-o prefix"></i>
+              <input type="text" id="manual-lifetime-form" class="form-control">
+              <label for="manual-lifetime-form">Approximate Lifetime</label>
+            </div>
             
           </div>
-          <!--Footer-->
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Upload</button>
           </div>
         </div>
-        <!--/.Content-->
       </div>
     </div>
     </p>
@@ -80,7 +94,13 @@
   
   <div class="row">
     <h1>Food Spoiler</h1>
+    <hr>
   </div>
+  
+  <div class="row">
+    <p>Your refrigerator is empty. Add some items! </p>
+  </div>
+  
 </div>
 </main>
   
