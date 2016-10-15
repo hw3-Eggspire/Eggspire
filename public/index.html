@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Food Spoiler</title>
+  <title>EGGSPIRED</title>
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/mdb.min.css" rel="stylesheet">
@@ -19,22 +19,23 @@
 
 <main>
 <div class="container">
+<div class="centered">
   <div class="row">
-    <h1>Eggspire</h1>
+    <h1>Eggspired</h1>
   </div>
-  
+
   <div class="row">
     <p>
       <button id= "camera" type="button" class="btn btn-default" data-toggle="modal" data-target="#camera-add">Camera</button>
     </p>
-    
+
     <div class="input-group">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="add">Manual Add</button>
+        <button class="btn btn-default" type="button" style="margin-right:15px;" id="add">Manual Add</button>
       </span>
       <input type="text" class="form-control" placeholder="Your Item..." id="item">
     </div><!-- /input-group -->
-    
+
     <!--CAMERA PICTURE UPLOAD MODAL-->
     <div class="modal fade" id="camera-add" tabindex="-1" role="dialog" aria-labelledby="camera-addLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -51,7 +52,7 @@
             <input type="file" accept="image/*" capture="camera">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Upload</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Upload</button>
           </div>
         </div>
       </div>
@@ -78,7 +79,7 @@
     <!-- Completed tasks -->
     <ul class="todo" id="completed"></ul>
   </div>
-
+</div>
 </div>
 </main>
 

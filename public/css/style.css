@@ -12,7 +12,9 @@ body, input, button {
 .noFill {
   fill:none;
 }
-
+h1{
+  padding:20px 0;
+}
 header {
   width:100%;
   height:80px;
@@ -99,7 +101,15 @@ header button svg .fill {
 .container {
   width:100%;
   float:left;
-  padding:15px;
+  margin:10em 10em 10em 11em;
+  -webkit-margin:10em 10em 10em 11em;
+
+}
+.centered{
+  width:50%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
 }
 camera {
   position: relative;
