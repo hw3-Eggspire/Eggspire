@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Food Spoiler</title>
-  
+
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/mdb.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-  
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/reset.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="js/jquery-2.2.3.min.js"></script>
 </head>
 
@@ -19,16 +21,9 @@
 <div class="container">
   <div class="row">
     <p>
-    <div class="btn-group">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#camera-add">Camera</button>
-      <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" data-toggle="modal" data-target="#manual-add">Manual Add</a>
-      </div>
+    <div class="btn-group" style="margin-left:">
+      <button id= "camera" type="button" class="btn btn-default" data-toggle="modal" data-target="#camera-add">Camera</button>
     </div>
-    
     <!--CAMERA PICTURE UPLOAD MODAL-->
     <div class="modal fade" id="camera-add" tabindex="-1" role="dialog" aria-labelledby="camera-addLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -41,7 +36,7 @@
           </div>
           <div class="modal-body">
             <p>Upload a picture of your receipt. </p>
-            
+
             <input type="file" accept="image/*" capture="camera">
           </div>
           <div class="modal-footer">
@@ -50,7 +45,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--CAMERA PICTURE UPLOAD MODAL-->
     <div class="modal fade" id="manual-add" tabindex="-1" role="dialog" aria-labelledby="manual-addLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -59,54 +54,46 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="myModalLabel">Manual Add</h4>
-          </div>
-          <div class="modal-body">
-            <p>Manually add your food. </p>
-            
-            <div class="md-form">
-              <i class="fa fa-pencil prefix"></i>
-              <input type="text" id="manual-name-form" class="form-control">
-              <label for="manual-name-form">Name of Item</label>
-            </div>
-            
-            <div class="md-form">
-              <i class="fa fa-hashtag prefix"></i>
-              <input type="text" id="manual-quantity-form" class="form-control">
-              <label for="manual-quantity-form">Quantity</label>
-            </div>
-            
-            <div class="md-form">
-              <i class="fa fa-clock-o prefix"></i>
-              <input type="text" id="manual-lifetime-form" class="form-control">
-              <label for="manual-lifetime-form">Approximate Lifetime</label>
-            </div>
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Upload</button>
           </div>
         </div>
       </div>
     </div>
     </p>
   </div>
-  
+
+          <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" style="margin-right:10px" type="button" id="add">Manual Add</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Your Item..." id="item">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+    <div class="container">
+      <!-- Uncompleted tasks -->
+      <ul class="todo" id="todo"></ul>
+
+      <!-- Completed tasks -->
+      <ul class="todo" id="completed"></ul>
+    </div>
+
   <div class="row">
-    <h1>Food Spoiler</h1>
+    <h1>EGGSPIRED</h1>
     <hr>
   </div>
-  
+
   <div class="row">
     <p>Your refrigerator is empty. Add some items! </p>
   </div>
-  
+
 </div>
 </main>
-  
+
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <link href="js/tether.min.js" rel="stylesheet">
-  
+  <script src="js/items.js"></script>
+
 </body>
 </html>
