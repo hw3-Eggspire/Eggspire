@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Food Spoiler</title>
+  
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  
+  <script src="js/jquery-2.2.3.min.js"></script>
+</head>
+
+<body>
+
+<main>
+<div class="container">
+  <div class="row">
+    <p>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#camera-add">Camera</button>
+      <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" data-toggle="modal" data-target="#manual-add">Manual Add</a>
+      </div>
+    </div>
+    
+    <!--CAMERA PICTURE UPLOAD MODAL-->
+    <div class="modal fade" id="camera-add" tabindex="-1" role="dialog" aria-labelledby="camera-addLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="camera-addLabel">Receipt Picture <span class="fa fa-camera"></span></h4>
+          </div>
+          <div class="modal-body">
+            <p>Upload a picture of your receipt. </p>
+            
+            <input type="file" accept="image/*" capture="camera">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--CAMERA PICTURE UPLOAD MODAL-->
+    <div class="modal fade" id="manual-add" tabindex="-1" role="dialog" aria-labelledby="manual-addLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Receipt Camera Upload</h4>
+          </div>
+          <!--Body-->
+          <div class="modal-body">
+            <p>Manually add your food. </p>
+            
+            
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Upload</button>
+          </div>
+        </div>
+        <!--/.Content-->
+      </div>
+    </div>
+    </p>
+  </div>
+  
+  <div class="row">
+    <h1>Food Spoiler</h1>
+  </div>
+</div>
+</main>
+  
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <link href="js/tether.min.js" rel="stylesheet">
+  
+</body>
+</html>
