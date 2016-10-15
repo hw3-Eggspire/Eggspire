@@ -1,0 +1,14 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\ryan\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.0.8
+[debug] Platform:     win32
+[debug] Node Version: v6.3.1
+[debug] Time:         Sat Oct 15 2016 16:14:01 GMT-0400 (Eastern Daylight Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\ryan\Documents\GitHub\eggspire
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
