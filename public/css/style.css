@@ -98,15 +98,15 @@ header button svg .fill {
   fill:#25b99a;
 }
 
-.container {
+.containerCustom {
   width:100%;
   float:left;
-  margin:10em 10em 10em 11em;
-  -webkit-margin:10em 10em 10em 11em;
+  margin:5em auto;
+  -webkit-margin:5em auto;
 
 }
 .centered{
-  width:50%;
+  width:40%;
   display:block;
   margin-left:auto;
   margin-right:auto;
