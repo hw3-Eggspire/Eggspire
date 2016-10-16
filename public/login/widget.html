@@ -5,7 +5,7 @@
     <title>FirebaseUI Auth Demo</title>
     <!-- COPY AND PASTE THE WEB SETUP SNIPPET HERE: -->
     <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/js/index.js"></script>
     <!-- END OF WEB SNIPPET -->
     <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css" />
@@ -19,7 +19,7 @@
       // FirebaseUI config.
       var uiConfig = {
         // Url to redirect to after a successful sign-in.
-        'signInSuccessUrl': '/',
+        'signInSuccessUrl': '/app',
         'callbacks': {
           'signInSuccess': function(user, credential, redirectUrl) {
             if (window.opener) {
