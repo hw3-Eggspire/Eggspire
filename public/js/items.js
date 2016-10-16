@@ -111,7 +111,7 @@ function expireNotice(){
     if(expires_dates[i][c]===fridge[f][current]){
        // console.log(expires_dates[i][c]);
        if(today.getTime()>fridge[f][previous]+86400000*expires_dates[i][n]){
-        alert("Eat your "+fridge[f][current]+" soon before they expire!");
+         $('#alerts').append("<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>Eat your "+fridge[f][current]+" soon before they expire!</div>");
       }
     }
 
