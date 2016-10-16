@@ -30,7 +30,7 @@ var uiConfig = {
     },*/
     //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    //firebase.auth.EmailAuthProvider.PROVIDER_ID
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
   ],
   // Terms of service url.
   'tosUrl': 'https://www.google.com'
