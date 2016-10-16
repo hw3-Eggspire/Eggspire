@@ -21,7 +21,7 @@ var userId='yloovtKXa2ePZmowdeKVX8I06cp2';
 	function removeItem() {
 		var item = this.parentNode.parentNode;
     var parent = item.parentNode;
-    
+
     item.classList.add('del');
     $('li.del').addClass('animated fadeOutRight');
     $('li.del').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
@@ -68,5 +68,22 @@ function addItemTodo(text) {
     $('li.new').removeClass('new animated fadeInLeft');
     writeUserData(userId,text,today.getTime());
   });
+}
+
+function expireNotice(){
+	var today=new Date();
+
+	for(var f=0;f<list.length;f++){
+		var n=0;
+		for(var i=0;i<expires_dates.length;i++){
+			if(expires_dates[i][0]===list[f][0]){
+				n=i;
+			}
+		}
+		if(today.getTime()>list[f][1]+86400000*expires_dates[n][1]){
+			alert("Eat your "+list[f][0]+" soon before they expire!");
+			removeItem();
+		}
+	}
 }
 
