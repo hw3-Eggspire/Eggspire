@@ -19,7 +19,7 @@ var uiConfig = {
       provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       scopes: ['https://www.googleapis.com/auth/plus.login']
     },
-    {
+    /*{
       provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       scopes :[
         'public_profile',
@@ -27,10 +27,10 @@ var uiConfig = {
         'user_likes',
         'user_friends'
       ]
-    },
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
+    },*/
+    //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    //firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
   'tosUrl': 'https://www.google.com'
