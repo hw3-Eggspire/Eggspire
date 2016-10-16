@@ -8,11 +8,12 @@ var uiConfig = {
     'signInSuccess': function(user, credential, redirectUrl) {
       handleSignedInUser(user);
       // Do not redirect.
-      return false;
+      window.location.assign('/app');
+      return true;
     }
   },
   // Opens IDP Providers sign-in flow in a popup.
-  'signInFlow': 'popup',
+  'signInFlow': 'redirect',
   'signInOptions': [
     // TODO(developer): Remove the providers you don't need for your app.
     {
@@ -52,9 +53,9 @@ var signInWithRedirect = function() {
 /**
  * Open a popup with the FirebaseUI widget.
  */
-var signInWithPopup = function() {
+/*var signInWithPopup = function() {
   window.open('/widget/', 'Sign In', 'width=985,height=735');
-};
+};*/
 
 
 /**
@@ -103,10 +104,10 @@ firebase.auth().onAuthStateChanged(function(user) {
  * Initializes the app.
  */
 var initApp = function() {
-  document.getElementById('sign-in-with-redirect').addEventListener(
+  /*document.getElementById('sign-in-with-redirect').addEventListener(
       'click', signInWithRedirect);
   document.getElementById('sign-in-with-popup').addEventListener(
-      'click', signInWithPopup);
+      'click', signInWithPopup);*/
   document.getElementById('sign-out').addEventListener('click', function() {
     firebase.auth().signOut();
   });
