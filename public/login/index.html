@@ -11,29 +11,43 @@
     <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      <link rel="stylesheet" type="text/css" href="css/reset.min.css">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/reset.min.css">
+  <script src="/js/jquery-2.2.3.min.js"></script>
   </head>
   <body>
     <div id="container">
-      <h3>User Account</h3>
+      <br>
+      <h3 style="text-align:center">User Account</h3>
+      <br>
       <div id="loading">Loading...</div>
       <div id="loaded" class="hidden">
         <div id="main">
           <div id="user-signed-in" class="hidden">
             <div id="user-info">
-              <div id="photo-container">
+              <div id="photo-container" align="middle">
                 <img id="photo">
+                  <br>
+                 <div id="name"></div>
+                <div id="email"></div>
+                <div class="clearfix"></div>
               </div>
-              <div id="name"></div>
-              <div id="email"></div>
-              <div class="clearfix"></div>
+
             </div>
             <p>
-              <button id="sign-out">Sign Out</button>
-              <button id="delete-account">Delete account</button>
+              <a href="/app" class="btn btn-default">My List</a>
+              <button type="button" id="sign-out" class="btn btn-danger">Sign Out</button>
             </p>
           </div>
           <div id="user-signed-out" class="hidden">
-            <h4>You are signed out.</h4>
+            <h4 style="text-align:center">You are signed out.</h4>
+            <br>
             <p>
               <!--<button id="sign-in-with-redirect">Sign In with Redirect</button>
               <button id="sign-in-with-popup">Sign In with Popup</button>-->

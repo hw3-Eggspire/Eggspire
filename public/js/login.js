@@ -111,10 +111,6 @@ var initApp = function() {
   document.getElementById('sign-out').addEventListener('click', function() {
     firebase.auth().signOut();
   });
-  document.getElementById('delete-account').addEventListener(
-      'click', function() {
-        firebase.auth().currentUser.delete();
-      });
 };
 
 window.addEventListener('load', initApp);
