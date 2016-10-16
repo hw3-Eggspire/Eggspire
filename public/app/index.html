@@ -34,13 +34,13 @@
 
   <div class="row">
     <p>
-      <li><a href="/login" class="btn btn-default">Settings</a></li>
-      <button id= "camera" type="button" class="btn btn-default" data-toggle="modal" data-target="#camera-add">Camera</button>
+      <li><a href="/login" class="btn btn-default"><i class="fa fa-gear"></i> Settings</a></li>
+      <button id= "camera" type="button" class="btn btn-default" data-toggle="modal" data-target="#camera-add"><i class="fa fa-camera"></i> Camera</button>
     </p>
 
     <div class="input-group">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" style="margin-right:30px;" id="add">Add Item</button>
+        <button class="btn btn-default" type="button" style="margin-right:30px;" id="add"><i class="fa fa-plus"></i>Add Item</button>
       </span>
       <input type="text" class="form-control" placeholder="Type your item..." id="item">
     </div><!-- /input-group -->
@@ -57,29 +57,16 @@
           </div>
           <div class="modal-body">
             <p>Upload a picture of your receipt. </p>
-
-            <input type="file" accept="image/*" capture="camera">
+            <form name="receipt" id="receipt">
+              <input type="file" accept="image/*" capture="camera" id="input">
+            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Upload</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="upload">Upload</button>
           </div>
         </div>
       </div>
     </div>
-
-    <!--CAMERA PICTURE UPLOAD MODAL-->
-    <div class="modal fade" id="manual-add" tabindex="-1" role="dialog" aria-labelledby="manual-addLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="row">
     <!-- Uncompleted tasks -->
@@ -90,12 +77,63 @@
   </div>
 </div>
 </div>
+</div>
 </main>
   <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/js/mdb.min.js"></script>
   <script src="/js/items.js"></script>
+  
+  <script>
+    var uploadEvt = function (evt) {
+      alert(document.getElementById('input').files);
+      var files = document.getElementById('input').files [0];
+      
+      var storageRef = firebase.storage().ref();
+      
+      var metadata = {
+        contentType: 'image/*',
+      };
+      
+      var uploadTask = storageRef.child('images/' + files.name).put(files, metadata);
+      
+      // Listen for state changes, errors, and completion of the upload.
+uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+  function(snapshot) {
+    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log('Upload is ' + progress + '% done');
+    switch (snapshot.state) {
+      case firebase.storage.TaskState.PAUSED: // or 'paused'
+        console.log('Upload is paused');
+        break;
+      case firebase.storage.TaskState.RUNNING: // or 'running'
+        console.log('Upload is running');
+        break;
+    }
+  }, function(error) {
+  switch (error.code) {
+    case 'storage/unauthorized':
+      // User doesn't have permission to access the object
+      break;
+
+    case 'storage/canceled':
+      // User canceled the upload
+      break;
+      
+    case 'storage/unknown':
+      // Unknown error occurred, inspect error.serverResponse
+      break;
+  }
+}, function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = uploadTask.snapshot.downloadURL;
+});
+    };
+    
+    document.getElementById('upload').addEventListener('click', uploadEvt);
+  </script>
 
 </body>
 </html>
