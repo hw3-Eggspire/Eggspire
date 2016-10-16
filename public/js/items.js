@@ -20,10 +20,15 @@ var userId='yloovtKXa2ePZmowdeKVX8I06cp2';
 
 	function removeItem() {
 		var item = this.parentNode.parentNode;
-		var parent = item.parentNode;
-		firebase.database().ref('users/' + userId+'/'+item.innerText).remove();
-		parent.removeChild(item);
-
+    var parent = item.parentNode;
+    
+    item.classList.add('del');
+    $('li.del').addClass('animated fadeOutRight');
+    $('li.del').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+      $('li.del').removeClass('del animated fadeOutRight');
+      parent.removeChild(item);
+      firebase.database().ref('users/' + userId+'/'+item.innerText).remove();
+    });
 	}
 
 function writeUserData(userId, food, date) {
@@ -32,31 +37,36 @@ function writeUserData(userId, food, date) {
     buy_date: date
   });
 }
-	// Adds a new item to the todo list
-	function addItemTodo(text) {
-		var list = document.getElementById('todo');
+// Adds a new item to the todo list
+function addItemTodo(text) {
+  var list = document.getElementById('todo');
 
-		var item = document.createElement('li');
-		item.innerText = text;
+  var item = document.createElement('li');
+  item.classList.add('new');
+  item.innerText = text;
 
-		var buttons = document.createElement('div');
-		buttons.classList.add('buttons');
+  var buttons = document.createElement('div');
+  buttons.classList.add('buttons');
 
-		var remove = document.createElement('button');
-		remove.classList.add('remove');
-		remove.innerHTML = removeSVG;
+  var remove = document.createElement('button');
+  remove.classList.add('remove');
+  remove.innerHTML = removeSVG;
 
-		// Add click event for removing the item
-		remove.addEventListener('click', removeItem);
+  // Add click event for removing the item
+  remove.addEventListener('click', removeItem);
 
-		// Add click event for completing the item
+  // Add click event for completing the item
 
-		buttons.appendChild(remove);
-		item.appendChild(buttons);
+  buttons.appendChild(remove);
+  item.appendChild(buttons);
 
-		list.insertBefore(item, list.childNodes[0]);
-		var today = new Date();
+  list.insertBefore(item, list.childNodes[0]);
+  var today = new Date();
 
-		writeUserData(userId,text,today.getTime());
-	}
+  $('li.new').addClass('animated fadeInLeft');
+  $('li.new').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+    $('li.new').removeClass('new animated fadeInLeft');
+    writeUserData(userId,text,today.getTime());
+  });
+}
 
