@@ -1,0 +1,14 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.0.8
+[debug] Platform:     darwin
+[debug] Node Version: v4.5.0
+[debug] Time:         Sat Oct 15 2016 20:33:50 GMT-0400 (EDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/Atharva/Documents/Github/eggspire
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000

@@ -60,19 +60,3 @@ function writeUserData(userId, food, date) {
 		writeUserData(userId,text,today.getTime());
 	}
 
-
-/*
-	$('#add').on('click',function()){
-
-
-		$.ajax({
-		type:'POST',
-		url:'/api/in_fridge',
-	 	data: item,
-	 	success:function(newInFridge){
-	 		$++++++++++++++++++
-	 	}
-		})
-	}
-*/
-
