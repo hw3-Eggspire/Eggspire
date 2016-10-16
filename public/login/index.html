@@ -23,36 +23,38 @@
   </head>
   <body>
     <div id="container">
-      <br>
-      <h3 style="text-align:center">User Account</h3>
-      <br>
-      <div id="loading">Loading...</div>
-      <div id="loaded" class="hidden">
-        <div id="main">
-          <div id="user-signed-in" class="hidden">
-            <div id="user-info">
-              <div id="photo-container" align="middle">
-                <img id="photo">
-                  <br>
-                 <div id="name"></div>
-                <div id="email"></div>
-                <div class="clearfix"></div>
-              </div>
+      <div class="row">
+        <br>
+        <h3 style="text-align:center">User Account</h3>
+        <br>
+        <div id="loading">Loading...</div>
+        <div id="loaded" class="hidden">
+          <div id="main">
+            <div id="user-signed-in" class="hidden">
+              <div id="user-info">
+                <div id="photo-container" align="middle">
+                  <img id="photo">
+                    <br>
+                   <div id="name"></div>
+                  <div id="email"></div>
+                  <div class="clearfix"></div>
+                </div>
 
+              </div>
+              <div class="text-xs-center">
+                <a href="/app" class="btn btn-default">My List</a>
+                <button type="button" id="sign-out" class="btn btn-danger">Sign Out</button>
+              </div>
             </div>
-            <p>
-              <a href="/app" class="btn btn-default">My List</a>
-              <button type="button" id="sign-out" class="btn btn-danger">Sign Out</button>
-            </p>
-          </div>
-          <div id="user-signed-out" class="hidden">
-            <h4 style="text-align:center"></h4>
-            <p>
-              <!--<button id="sign-in-with-redirect">Sign In with Redirect</button>
-              <button id="sign-in-with-popup">Sign In with Popup</button>-->
-            </p>
-            <div id="firebaseui-spa">
-              <div id="firebaseui-container"></div>
+            <div id="user-signed-out" class="hidden">
+              <h4 style="text-align:center"></h4>
+              <p>
+                <!--<button id="sign-in-with-redirect">Sign In with Redirect</button>
+                <button id="sign-in-with-popup">Sign In with Popup</button>-->
+              </p>
+              <div id="firebaseui-spa">
+                <div id="firebaseui-container"></div>
+              </div>
             </div>
           </div>
         </div>
