@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>EGGSPIRED</title>
-  
+
       <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
     <script src="/js/index.js"></script>
   <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.7/dist/tesseract.js'></script>
-  
+
   <link rel="icon" type="image/png" href="/img/logo.png">
   <meta name="theme-color" content="#2abaac">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -31,10 +31,11 @@
 
 <main>
   <div class="container">
+  <div style="margin-top:15%;">
   <div class="row" id="alerts">
-    
+
   </div>
-  
+
   <div class="row">
     <h1><img src="/img/logo.png" width="40px"> EGGSPIRED</h1>
   </div>
@@ -59,6 +60,7 @@
         </div>
       </div>
     <hr>
+    </div>
   </div>
 
   <!--CAMERA PICTURE UPLOAD MODAL-->
@@ -98,20 +100,20 @@
   <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/js/mdb.min.js"></script>
   <script src="/js/items.js"></script>
-  
+
   <script>
     var uploadEvt = function (evt) {
       //alert(document.getElementById('input').files);
       var files = document.getElementById('input').files [0];
-      
+
       var storageRef = firebase.storage().ref();
-      
+
       var metadata = {
         contentType: 'image/*',
       };
-      
+
       var uploadTask = storageRef.child('images/' + files.name).put(files, metadata);
-      
+
       // Listen for state changes, errors, and completion of the upload.
 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   function(snapshot) {
@@ -135,19 +137,19 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
     case 'storage/canceled':
       // User canceled the upload
       break;
-      
+
     case 'storage/unknown':
       // Unknown error occurred, inspect error.serverResponse
       break;
   }
 }, function() {
   // Upload completed successfully, now we can get the download URL
-  
+
   var downloadURL = uploadTask.snapshot.downloadURL;
   //alert(downloadURL);
 });
     };
-    
+
     document.getElementById('upload').addEventListener('click', uploadEvt);
   </script>
 

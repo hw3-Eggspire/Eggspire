@@ -59,12 +59,15 @@ header button svg .fill {
   fill:#25b99a;
 }
 
-.containerCustom {
-  width:100%;
-  float:left;
-  margin:5em auto;
-  -webkit-margin:5em auto;
-
+@media (min-width: 1200px) {
+  .container {
+    max-width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    max-width:500px;
+  }
 }
 .centered{
   width:40%;

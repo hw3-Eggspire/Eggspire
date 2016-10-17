@@ -91,8 +91,9 @@ function expireNotice(){
 
 	var today=new Date();
   getFridge();
+   // console.log("2 "+fridge);
   var keys0 = Object.keys(expires_dates);
-  console.log(keys0.length);
+  //console.log(keys0.length);
 
   for(var z=0;z<keys0.length;z++){
     var i =keys0[z];
@@ -127,6 +128,25 @@ window.onload = function() {
   setInterval(function() {
     expireNotice();
   }, 5000);
- // expireNotice();
-};
 
+    firebase.database().ref('users/' + userId).once('value').then(function(snapshot) {
+   fridge = snapshot.val();
+
+  //console.log("1 "+fridge);
+  var keys0 = Object.keys(fridge);
+
+  for(var f=0;f<keys0.length;f++){
+    var c= keys0[f];
+
+    var keys = Object.keys(fridge[c]);
+    console.log(keys.length);
+    for(var g=1;g<keys.length;g++){
+      console.log(g);
+      var current=keys[g];
+      addItemTodo(fridge[c][current]);
+    }
+
+  }
+ });
+
+};
