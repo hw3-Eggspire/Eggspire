@@ -46,23 +46,28 @@
     ul {
       padding: 50% 0;
     }
-
   </style>
+  <script>
+    $("#landingText").delay(2000).animate({"opacity": "1"}, 700);
+  </script>
 </head>
 <body>
   <div class="full-bg-img flex-center" style="margin-bottom: 0;">
     <ul class="animated fadeInUp">
-      <li style="color: #3b3331;" class="noselect"><p>.</p></li>
-      <li style="color: #3b3331;"><p>.</p></li>
-      <li style="color: #3b3331;"><p>.</p></li>
-      <li style="color: #3b3331;"><p>.</p></li>
-      <li style="color: #3b3331;"><p>.</p></li>
-      <li><h1 class="h1-responsive" style="font-size: 4em; font-weight: bold; letter-spacing: 7px;">EGGSPIRE</h1></li>
-      <li><h4 style="width: 90%; max-width: 1000px; margin: auto; font-style: italic; font-family: Georgia, serif;line-height: 27px;">With 1.6 million Canadians having suffered from food-born illnesses last year, food safety is more important than ever. Don't let your food Eggspire . . .</h4></li>
-      <li><a href="/login" class="btn btn-default btn-lg">Join</a></li>
+
+      <li style="padding-top:15%;"><h1 class="h1-responsive" style="font-size: 4em; font-weight: bold; letter-spacing: 7px;">EGGSPIRE</h1></li>
+      <li><h4 style="width: 90%; max-width: 1000px; margin: auto; padding-bottom:5% ;font-style: italic; font-family: Georgia, serif;line-height: 27px;">With 1.6 million Canadians having suffered from food-born illnesses last year, food safety is more important than ever. Don't let your food Eggspire . . .</h4></li>
+            <li>
+      <div >
+        <div class="md-form" style="width: 320px; margin: auto;">
+          <input type="text" class="form-control" style="color:#fff;" placeholder="Enter your fridge code, or make a new one!" id="fridgeCode" name="fridgeCode">
+        </div>
+      </div>
+      </li>
+      <!--  <li><a href="/login" class="btn btn-default btn-lg">Join</a></li>-->
     </ul>
   </div>
 
-
+<script type="text/javascript" src="js/home.js"></script>
 </body>
 </html>

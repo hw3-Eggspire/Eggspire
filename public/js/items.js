@@ -18,7 +18,8 @@ var database = firebase.database();
 
  });
 
-  var userId='yloovtKXa2ePZmowdeKVX8I06cp2';
+  var userId=localStorage.getItem("code");
+  console.log(localStorage.getItem("code"));
 	// User clicked on the add button
 	// If there is any text inside the item field, add that text to the todo list
 	document.getElementById('add').addEventListener('click', function() {
@@ -28,6 +29,10 @@ var database = firebase.database();
 			document.getElementById('item').value = '';
 		}
 	});
+    document.getElementById('signOut').addEventListener('click', function() {
+      localStorage.removeItem("code");
+      location.assign("/");
+  });
 
 	function removeItem() {
 		var item = this.parentNode.parentNode;
@@ -80,6 +85,13 @@ function addItemTodo(text) {
     writeUserData(userId,text,today.getTime());
   });
 }
+
+    $(document).keypress(function(e) {
+    if(e.which == 13 && document.getElementById("item").value!=="" ) {
+    addItemTodo(document.getElementById("item").value);
+    document.getElementById("item").value="";
+    }
+});
 
 function getFridge(){
   firebase.database().ref('users/' + userId).once('value').then(function(snapshot) {

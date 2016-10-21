@@ -25,6 +25,11 @@
       }
       window.onload = load;
     </script>
+    <style>
+      h1{
+        font-size:60px;
+      }
+    </style>
 </head>
 
 <body>
@@ -37,12 +42,12 @@
   </div>
 
   <div class="row">
-    <h1><img src="/img/logo.png" width="40px"> EGGSPIRED</h1>
+    <h1 style=" padding:20px;"><img src="/img/logo.png" width="60px" style="margin-bottom:-7px;"> EGGSPIRED</h1>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
-      <li><a href="/login" class="btn btn-default"><i class="fa fa-gear"></i> Settings</a></li>
+      <li><div class="btn btn-default" id="signOut"><i class="fa fa-gear"></i> Sign Out</div></li>
       <button id= "camera" type="button" class="btn btn-default" data-toggle="modal" data-target="#camera-add"><i class="fa fa-camera"></i> Camera</button>
     </div>
   </div>
