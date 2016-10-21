@@ -20,6 +20,9 @@ var database = firebase.database();
 
   var userId=localStorage.getItem("code");
   console.log(localStorage.getItem("code"));
+    if(localStorage.getItem("code")==null){
+    location.assign("/");
+  }
 	// User clicked on the add button
 	// If there is any text inside the item field, add that text to the todo list
 	document.getElementById('add').addEventListener('click', function() {
