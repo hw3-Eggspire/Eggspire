@@ -154,9 +154,9 @@ window.onload = function() {
     var c= keys0[f];
 
     var keys = Object.keys(fridge[c]);
-    console.log(keys.length);
+    //console.log(keys.length);
     for(var g=1;g<keys.length;g++){
-      console.log(g);
+     // console.log(g);
       var current=keys[g];
       addItemTodo(fridge[c][current]);
     }
@@ -165,3 +165,212 @@ window.onload = function() {
  });
 
 };
+
+//____________________________________________________________________________________________________________________________________________________
+
+//Prepare form data
+ var uploadEvt = function (evt) {
+      //alert(document.getElementById('input').files);
+      var files = document.getElementById('input').files [0];
+
+      var storageRef = firebase.storage().ref();
+
+      var metadata = {
+        contentType: 'image/*',
+      };
+
+      var uploadTask = storageRef.child('images/' + files.name).put(files, metadata);
+
+      // Listen for state changes, errors, and completion of the upload.
+uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+  function(snapshot) {
+    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log('Upload is ' + progress + '% done');
+    switch (snapshot.state) {
+      case firebase.storage.TaskState.PAUSED: // or 'paused'
+        console.log('Upload is paused');
+        break;
+      case firebase.storage.TaskState.RUNNING: // or 'running'
+        console.log('Upload is running');
+        break;
+    }
+  }, function(error) {
+  switch (error.code) {
+    case 'storage/unauthorized':
+      // User doesn't have permission to access the object
+      break;
+
+    case 'storage/canceled':
+      // User canceled the upload
+      break;
+
+    case 'storage/unknown':
+      // Unknown error occurred, inspect error.serverResponse
+      break;
+  }
+}, function() {
+  // Upload completed successfully, now we can get the download URL
+
+  var downloadURL = uploadTask.snapshot.downloadURL;
+  //alert(downloadURL);
+});
+console.log(1);
+var formData = new FormData();
+//formData.append("url","http://normalness.com/wp-content/uploads//2016/01/Veggie-Grocery-Receipt.jpeg");
+formData.append("file", document.getElementById('input').files [0]);
+formData.append("language"
+    , "eng");
+formData.append("apikey"
+    , "5e1bb1322188957");
+
+formData.append("isOverlayRequired", false);
+
+//Send OCR Parsing request asynchronously
+console.log(1.5);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.ocr.space/parse/image",
+  "method": "POST",
+  "headers": {
+    "cache-control": "no-cache",
+    "postman-token": "f392d8da-9db8-6ca4-6a7d-4614825601aa"
+  },
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+  "data": formData
+}
+
+$.ajax(settings).done(function (responsee) {
+
+var response=jQuery.parseJSON(responsee);
+  var parsedResults = response.ParsedResults;
+
+var ocrExitCode = response.OCRExitCode;
+var isErroredOnProcessing = response.IsErroredOnProcessing;
+var errorMessage = response.ErrorMessage;
+var errorDetails = response.ErrorDetails;
+var processingTimeInMilliseconds = response.ProcessingTimeInMilliseconds;
+
+
+console.log(3);
+//If we have got parsed results, then loop over the results to do something
+if (parsedResults!= null) {
+//Loop through the parsed results
+console.log("4");
+$.each(parsedResults, function (index, value) {
+
+var exitCode = value["FileParseExitCode"];
+var parsedText = value["ParsedText"];
+var errorMessage = value["ParsedTextFileName"];
+var errorDetails = value["ErrorDetails"];
+
+var textOverlay = value["TextOverlay"];
+
+var pageText = '';
+switch (+exitCode) {
+case 1:
+pageText = parsedText;
+pageText = pageText.replace(/\r?\n|\r/g, '').toLowerCase();
+console.log(pageText);
+var words=pageText.split(" ");
+for (var a in expires_dates){
+ var keys0=Object.keys(expires_dates[a]);
+ for(var s=0;s<keys0.length-1;s++){
+  var current=keys0[s];
+  for(var d in words){
+
+    console.log("data: "+expires_dates[a][current]+" receipt: "+words[d]);
+  if(expires_dates[a][current]===words[d].toLowerCase()){
+    addItemTodo(expires_dates[a][current]);
+  }
+  }
+ }
+
+}
+break;
+case 0:
+case -10:
+case -20:
+case -30:
+case -99:
+default:
+pageText += "Error: " + errorMessage;
+break;
+}
+
+$.each(textOverlay["Lines"], function (index, value) {
+
+});
+});
+
+}
+
+});
+/*
+jQuery.ajax({
+    url: "https://api.ocr.space/parse/image",
+data: formData,
+dataType: 'form/multipart',
+cache: false,
+contentType: false,
+processData: false,
+type: 'json',
+success: function (ocrParsedResult) {
+  console.log(2);
+//Get the parsed results, exit code and error message and details
+var parsedResults = ocrParsedResult["ParsedResults"];
+var ocrExitCode = ocrParsedResult["OCRExitCode"];
+var isErroredOnProcessing = ocrParsedResult["IsErroredOnProcessing"];
+var errorMessage = ocrParsedResult["ErrorMessage"];
+var errorDetails = ocrParsedResult["ErrorDetails"];
+
+var processingTimeInMilliseconds = ocrParsedResult["ProcessingTimeInMilliseconds"];
+console.log(3);
+//If we have got parsed results, then loop over the results to do something
+if (parsedResults!= null) {
+//Loop through the parsed results
+$.each(parsedResults, function (index, value) {
+var exitCode = value["FileParseExitCode"];
+var parsedText = value["ParsedText"];
+var errorMessage = value["ParsedTextFileName"];
+var errorDetails = value["ErrorDetails"];
+
+var textOverlay = value["TextOverlay"];
+
+var pageText = '';
+switch (+exitCode) {
+case 1:
+pageText = parsedText;
+  console.log(pageText);
+break;
+case 0:
+case -10:
+case -20:
+case -30:
+case -99:
+default:
+pageText += "Error: " + errorMessage;
+break;
+}
+
+$.each(textOverlay["Lines"], function (index, value) {
+
+});
+
+
+});
+
+}
+}
+});
+*/
+
+    };
+
+    document.getElementById('upload').addEventListener('click', uploadEvt);
+
+
+
